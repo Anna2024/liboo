@@ -41,7 +41,7 @@ func utils_ParseStr(data interface{}) string {
 	case int, int64, uint, uint64:
 		return fmt.Sprint(data)
 	default:
-		return "'" + strings.Replace(fmt.Sprint(data), "'", `\'`, -1) + "'"
+		return "'" + strings.Replace(fmt.Sprint(strings.Replace(fmt.Sprint(data), "\\", `\\`, -1)), "'", `\'`, -1) + "'"
 	}
 }
 
